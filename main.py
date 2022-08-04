@@ -2,6 +2,8 @@ from datetime import datetime
 
 import requests
 
+import excel
+
 now = datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 print("date and time =", dt_string)
@@ -12,10 +14,8 @@ requestPound = requests.get("http://api.nbp.pl/api/exchangerates/rates/a/gbp/")
 
 eur = requestEuro.json()
 usd = requestDollar.json()
-gbd = requestPound.json()
+gbp = requestPound.json()
 
 euroRate = eur['rates'][0]['mid']
 dollarRate = usd['rates'][0]['mid']
-poundRate = gbd['rates'][0]['mid']
-
-print(euroRate, dollarRate, poundRate)
+poundRate = gbp['rates'][0]['mid']
